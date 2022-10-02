@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tính tuổi</title>
+</head>
+
+<body>
+    <form>
+        <label for="">Nhập tuổi của bạn: </label>
+        <input type="text" id="input_age">
+        <!-- bat su kien click -->
+        <button id="btn" type="button" onclick="return in_ra()">Gửi</button>
+    </form>
+    <div id="ket_qua"></div>
+    <script>
+        let kiem_tra_loi = false;
+        document.getElementById('input_age').addEventListener('keydown', (e) => {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                document.getElementById('btn').click();
+            }
+        });
+
+        function in_ra() {
+            let age = document.getElementById('input_age').value;
+            document.getElementById('input_age').value = '';
+            document.getElementById('ket_qua').innerHTML = 'Tuổi của bạn là: ' + age;
+            let regex_age = /^\d+$/;
+            if (regex_age.test(age) === false) {
+                document.getElementById('ket_qua').innerHTML = 'Tuổi không hợp lệ!';
+                kiem_tra_loi = true;
+            }
+            if (age.length === 0) {
+                document.getElementById('ket_qua').innerHTML = 'Không được để trống!';
+                kiem_tra_loi = true;
+            }
+            if (kiem_tra_loi) return false;
+        }
+    </script>
+</body>
+
+</html>

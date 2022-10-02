@@ -1,0 +1,11 @@
+body {
+    background-image: url(./img/bg.gif);
+    font-size: 20px;
+    color: purple;
+    margin-top: 200px;
+    margin-left: 200px;
+}
+
+#ket_qua {
+    margin-top: 40px;
+}
